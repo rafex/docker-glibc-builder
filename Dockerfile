@@ -1,5 +1,5 @@
 FROM ubuntu:22.04
-LABEL maintainer="Sasha Gerrand <github+docker-glibc-builder@sgerrand.com>"
+LABEL maintainer="Rafex <rafex@rafex.dev>"
 ENV DEBIAN_FRONTEND=noninteractive \
     GLIBC_VERSION=2.39 \
     PREFIX_DIR=/usr/glibc-compat
