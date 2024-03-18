@@ -4,11 +4,12 @@ set -eo pipefail; [[ "$TRACE" ]] && set -x
 
 main() {
 	declare version="${1:-$GLIBC_VERSION}" prefix="${2:-$PREFIX_DIR}"
+	declare url="https://mirror.csclub.uwaterloo.ca/gnu/glibc"
 
 	: "${version:?}" "${prefix:?}"
 
 	{
-		wget -qO- "https://ftpmirror.gnu.org/libc/glibc-$version.tar.gz" \
+		wget -qO- "$url/glibc-$version.tar.gz" \
 			| tar zxf -
 		mkdir -p /glibc-build && cd /glibc-build
 		"/glibc-$version/configure" \
