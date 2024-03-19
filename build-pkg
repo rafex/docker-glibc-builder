@@ -1,0 +1,3 @@
+#!/bin/sh
+
+podman build -t rafex/glibc-apk -f Dockerfile.build-pkg .
