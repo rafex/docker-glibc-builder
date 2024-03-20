@@ -22,10 +22,13 @@ COPY ["APKBUILD", "glibc-bin.trigger", "ld.so.conf", "nsswitch.conf", "/builder/
 USER $user
 WORKDIR $path
 
+RUN ls -la
 RUN sudo abuild-keygen -a -i -n
 RUN mkdir -p packages
+RUN ls -la
 RUN sudo chown -R $user:$group upstream packages
 RUN cd upstream
+RUN ls -la
 RUN abuild checksum
 RUN abuild -r
 
