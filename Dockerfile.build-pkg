@@ -2,10 +2,11 @@ FROM alpine:latest as glibc-builder-pkg
 
 LABEL maintainer="Rafex <rafex@rafex.dev>"
 
-ARG user=abuild \ 
-	path=/builder \
-    GLIBC_VERSION=2.39 
+ENV GLIBC_VERSION=2.39 
 
+ARG user=abuild \ 
+	path=/builder 
+    
 RUN apk --no-cache add alpine-sdk coreutils
 RUN adduser -G $user -g "Alpine Package Builder" -s /bin/ash -D builder && \
     echo "builder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
