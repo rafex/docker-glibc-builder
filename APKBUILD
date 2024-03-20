@@ -3,7 +3,7 @@
 pkgname="glibc"
 pkgver="2.39"
 _pkgrel="0"
-pkgrel="0"
+pkgrel="1"
 pkgdesc="GNU C Library compatibility layer"
 arch="all"
 url="https://github.com/rafex/docker-glibc-builder"
@@ -34,7 +34,7 @@ package() {
 }
 
 bin() {
-  depends="$pkgname libgcc"
+  depends="$pkgname bash libc6-compat libgcc"
   mkdir -p "$subpkgdir"/usr/glibc-compat
   cp -a "$srcdir"/usr/glibc-compat/bin "$subpkgdir"/usr/glibc-compat
   cp -a "$srcdir"/usr/glibc-compat/sbin "$subpkgdir"/usr/glibc-compat
