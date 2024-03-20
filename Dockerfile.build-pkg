@@ -9,6 +9,7 @@ ARG user=abuild \
     
 RUN apk --no-cache add alpine-sdk coreutils
 RUN adduser -G $user -g "Alpine Package Builder" -s /bin/ash -D builder 
+RUN cat /etc/passwd
 RUN echo "builder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 RUN cat /etc/sudoers
 RUN mkdir -p $path/upstream

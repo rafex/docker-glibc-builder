@@ -2,4 +2,4 @@
 
 BUILDKIT_PROGRESS=plain
 
-docker build -t rafex/glibc-apk -f Dockerfile.build-pkg .
+docker build --progress=plain --no-cache -t rafex/glibc-apk -f Dockerfile.build-pkg .
