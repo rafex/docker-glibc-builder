@@ -21,7 +21,7 @@ WORKDIR $path
 
 RUN abuild-keygen -a -i -n && \
     mkdir -p packages && \
-    sudo chown -R builder:abuild upstream packages && \
+    sudo chown -R builder:$user upstream packages && \
     cd upstream && \
     abuild checksum && \
     abuild -r

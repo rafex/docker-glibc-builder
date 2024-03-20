@@ -2,5 +2,5 @@
 *.gz
 *.tar
 *.tar.gz
-!glib-bin-*.tar.gz
+!glibc-bin-*.tar.gz
 ._*
