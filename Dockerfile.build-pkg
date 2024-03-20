@@ -27,7 +27,9 @@ RUN sudo abuild-keygen -a -i -n
 RUN mkdir -p packages
 RUN ls -la
 RUN sudo chown -R $user:$group upstream packages
-RUN cd upstream
+
+WORKDIR $path/upstream
+
 RUN ls -la
 RUN abuild checksum
 RUN abuild -r
