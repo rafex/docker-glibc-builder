@@ -1,16 +1,17 @@
 FROM alpine:latest as glibc-builder-pkg
+
 LABEL maintainer="Rafex <rafex@rafex.dev>"
-ENV GLIBC_VERSION=2.39 \
-    PREFIX_DIR=/usr/glibc-compat
 
 ARG user=abuild \ 
-	path=/builder
+	path=/builder \
+    GLIBC_VERSION=2.39 
 
 RUN apk --no-cache add alpine-sdk coreutils
 RUN adduser -G $user -g "Alpine Package Builder" -s /bin/ash -D builder && \
     echo "builder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
     mkdir -p $path/upstream
-
+    
+     
 COPY glibc-bin-${GLIBC_VERSION}.tar.gz $path/upstream
 COPY ["APKBUILD", "glibc-bin.trigger", "ld.so.conf", "nsswitch.conf", "/builder/upstream/"]
 
