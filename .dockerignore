@@ -1,3 +1,6 @@
 .git
 *.gz
+*.tar
+*.tar.gz
+!glib-bin-*.tar.gz
 ._*
