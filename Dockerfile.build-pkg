@@ -33,4 +33,4 @@ RUN sed -i 's/arch=.*/arch="armhf"/g' APKBUILD && \
 RUN abuild checksum
 RUN abuild -r
 
-ENTRYPOINT ["/builder"]
+
